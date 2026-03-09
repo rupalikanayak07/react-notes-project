@@ -1,13 +1,13 @@
 import React, { useContext, useEffect, useState } from "react";
 import axios from "axios";
 import { Globalcontextapi } from "../context/Globalcontext";
-import { Link, useParams } from "react-router-dom";
+import { Link, useNavigate, useParams } from "react-router-dom";
 
 const Profile = () => {
 
-    const id = JSON.parse(localStorage.getItem('jwt_token')).split('.')[2]
+    // const id = JSON.parse(localStorage.getItem('jwt_token')).split('.')[2]
 
-
+    const navigate=useNavigate()
     const { userId } = useParams()
     const [currentuser, setcurrentuser] = useState('')
 
@@ -20,6 +20,11 @@ const Profile = () => {
         fdata()
     }, [])
 
+    const deleteuser=async (params) => {
+        const {data}=await axios.delete(`http://localhost:3000/users/${userId}`)
+        navigate('/')
+        localStorage.removeItem('jwt_token')
+    }
 
     return (
         <div className="p-6 w-[60%] flex flex-col items-center   gap-5 pt-12">
@@ -64,10 +69,10 @@ const Profile = () => {
                 <div className="flex gap-4 pt-4">
 
                     <button className="flex-1 bg-purple-500 hover:bg-purple-600 text-white py-2 rounded-lg transition">
-                        <Link to= { `/dashboard/updateprofile/${id}`}>Update Profile</Link>
+                        <Link to= { `/dashboard/updateprofile/${userId}`}>Update Profile</Link>
                     </button>
 
-                    <button className="flex-1 bg-red-400 hover:bg-red-500 text-white py-2 rounded-lg transition">
+                    <button className="flex-1 bg-red-400 hover:bg-red-500 text-white py-2 rounded-lg transition" onClick={deleteuser}>
                         Delete Profile
                     </button>
 

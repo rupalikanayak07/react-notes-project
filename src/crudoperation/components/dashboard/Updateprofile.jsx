@@ -1,3 +1,4 @@
+import axios from 'axios';
 import React, { useEffect, useState } from 'react'
 import { useLocation, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify';
@@ -40,13 +41,16 @@ const Updateprofile = () => {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        console.log(formData);
+        const { username, age, email, password, dob, city, gender } = formData
         try {
             if (!username || !age || !email || !password || !dob) {
                 toast.error('all fields are required')
                 return
             }
             const { data } = await axios.put(`http://localhost:3000/users/${userId}`, formData)
+            console.log(data);
+
+            toast.success("update successfully", { position: "top-right" })
             setFormData({
                 username: "",
                 age: "",
@@ -58,7 +62,7 @@ const Updateprofile = () => {
             });
             navigate(`/dashboard/profile/${userId}`)
 
-            toast.success('register successfully')
+
         } catch (error) {
             console.log(error);
 

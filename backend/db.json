@@ -1,23 +1,13 @@
 {
   "users": [
     {
-      "id": "4340",
+      "id": "b087",
       "username": "rupali",
-      "age": "20",
-      "email": "rupalikanayak48@gmail.com",
-      "password": "12345",
-      "dob": "2026-03-04",
-      "city": "Mumbai",
-      "gender": "Female"
-    },
-    {
-      "id": "fc5a",
-      "username": "rupali",
-      "age": "23",
-      "email": "rupalikanayak48@gmail.com",
-      "password": "12345",
+      "age": "24",
+      "email": "rupalikanayak07@gmail.com",
+      "password": "1234",
       "dob": "2026-03-03",
-      "city": "Mumbai",
+      "city": "Bangalore",
       "gender": "Female"
     }
   ],
