@@ -1,0 +1,25 @@
+{
+  "users": [
+    {
+      "id": "4340",
+      "username": "rupali",
+      "age": "20",
+      "email": "rupalikanayak48@gmail.com",
+      "password": "12345",
+      "dob": "2026-03-04",
+      "city": "Mumbai",
+      "gender": "Female"
+    },
+    {
+      "id": "fc5a",
+      "username": "rupali",
+      "age": "23",
+      "email": "rupalikanayak48@gmail.com",
+      "password": "12345",
+      "dob": "2026-03-03",
+      "city": "Mumbai",
+      "gender": "Female"
+    }
+  ],
+  "$schema": "./node_modules/json-server/schema.json"
+}
