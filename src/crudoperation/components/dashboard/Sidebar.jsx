@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useContext, useEffect } from 'react'
 import { FaEdit, FaStickyNote, FaUser } from 'react-icons/fa';
 import { GoProjectSymlink } from 'react-icons/go';
 import { IoMdContact, IoMdContacts, IoMdHome } from 'react-icons/io';
@@ -6,6 +6,8 @@ import { IoHomeOutline } from 'react-icons/io5';
 import { MdAddAPhoto } from 'react-icons/md';
 import { SiHyperskill } from 'react-icons/si';
 import { NavLink, useNavigate } from 'react-router-dom';
+import Globalcontext, { Globalcontextapi } from '../context/Globalcontext';
+import axios from 'axios';
 
 const Sidebar = () => {
     const id = JSON.parse(localStorage.getItem('jwt_token')).split('.')[2]
@@ -13,16 +15,26 @@ const Sidebar = () => {
     const menuItems = [
         { title: 'dashboard', icon: IoHomeOutline, path: '/dashboard' },
         { title: "profile", icon: FaUser, path: `/dashboard/profile/${id}` },
-        
+
         { title: "add notes", icon: MdAddAPhoto, path: '/' },
         { title: "update notes", icon: FaStickyNote, path: '/' },
     ];
 
-    const navigate=useNavigate()
-    const logout=()=>{
+    
+    const { setcurrentuser } = useContext(Globalcontextapi)
+
+    const fdata=async () => {
+        const {data}=await axios.get(`http://localhost:3000/users/${id}`)
+        setcurrentuser(data)
+    }
+    useEffect(()=>{
+        fdata()
+    },[])
+    const navigate = useNavigate()
+    const logout = () => {
         localStorage.removeItem('jwt_token')
         navigate('/login')
-        
+
     }
 
     return (

@@ -12,7 +12,7 @@ const Login = () => {
     const { name, value } = e.target
     setformdata({ ...formdata, [name]: value })
   }
-
+  
   const navigate = useNavigate()
   const handleForm = async (e) => {
     e.preventDefault()
@@ -21,8 +21,8 @@ const Login = () => {
 
     const currentuser = data.find((ele) => (ele.email === formdata.email))
 
-    console.log(currentuser)
-    console.log(formdata)
+    // console.log(currentuser)
+    // console.log(formdata)
 
     if (!currentuser) {
       toast.error('email is not register')

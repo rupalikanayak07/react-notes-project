@@ -21,9 +21,9 @@ const Navbar = () => {
     ]
 
     const { currentuser } = useContext(Globalcontextapi)
-    // console.log(currentuser);
-
-
+    console.log(currentuser);
+    
+    
 
 
 
@@ -35,9 +35,9 @@ const Navbar = () => {
                     <ul className='h-full w-[50%] flex items-center justify-evenly text-white'>
 
                         {
-                            list.map((ele,index) => {
+                            list.map((ele, index) => {
                                 return (
-                                    <li  key={index} className='text-xl  capitalize  cursor-pointer  hover:tracking-wider'><NavLink to={ele.path}>{ele.text}</NavLink></li>
+                                    <li key={index} className='text-xl  capitalize  cursor-pointer  hover:tracking-wider'><NavLink to={ele.path}>{ele.text}</NavLink></li>
 
                                 )
                             })
@@ -49,7 +49,7 @@ const Navbar = () => {
                     <div className="h-full w-[20%]  flex items-center justify-center">
                         {
                             !currentuser ? <button className='px-7 py-2 capitalize bg-blue-900 text-white text-xl rounded-xl cursor-pointer hover:bg-cyan-600 '><Link to='/login'>Login</Link></button> :
-                                <div className='capitalize tracking-wider text-xl h-[50px] w-[50px] border rounded-full flex items-center justify-center '>{currentuser.username.slice(0,1)}</div>
+                                <div className='capitalize tracking-wider text-xl h-[50px] w-[50px] border rounded-full flex items-center justify-center '>{currentuser.username.slice(0, 1)}</div>
                         }
 
                     </div>
