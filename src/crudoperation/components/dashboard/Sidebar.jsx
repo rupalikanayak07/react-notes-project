@@ -15,8 +15,8 @@ const Sidebar = () => {
     const menuItems = [
         { title: 'dashboard', icon: IoHomeOutline, path: '/dashboard' },
         { title: "profile", icon: FaUser, path: `/dashboard/profile/${id}` },
-        { title: "add notes", icon: MdAddAPhoto, path: '/dashboard/addnotes' },
-        { title: "all notes", icon: FaStickyNote, path: '/dashboard/allnotes' },
+        { title: "add notes", icon: MdAddAPhoto, path: `/dashboard/addnotes/${id}` },
+        { title: "all notes", icon: FaStickyNote, path: `/dashboard/allnotes/${id}` },
     ];
 
     

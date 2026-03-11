@@ -51,12 +51,12 @@ export const routes = createBrowserRouter([
 
                     },
                     {
-                        path: '/dashboard/addnotes',
+                        path: '/dashboard/addnotes/:userid',
                         element: <Addnotes />
 
                     },
                     {
-                        path: '/dashboard/allnotes',
+                        path: '/dashboard/allnotes/:userid',
                         element: <Allnotes />
 
                     },

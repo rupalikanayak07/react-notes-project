@@ -1,6 +1,6 @@
 import axios from 'axios';
 import React, { useState } from 'react'
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import { toast } from 'react-toastify';
 
 const Addnotes = () => {
@@ -16,6 +16,7 @@ const Addnotes = () => {
         // console.log(formdata);
 
     }
+    const {userid}=useParams()
 
     const navigate=useNavigate()
     const handelform = async (e) => {
@@ -23,7 +24,7 @@ const Addnotes = () => {
 
         try {
 
-            const { data } = await axios.post('http://localhost:3000/notes', formdata)
+            const { data } = await axios.post('http://localhost:3000/notes', {...formdata,userid})
             console.log(data)
             toast.success('Notes added successfully',{position:'top-center'})
             setformdata({
@@ -31,7 +32,7 @@ const Addnotes = () => {
                 desc: '',
                 tags: ''
             })
-            navigate('/dashboard/allnotes')
+            navigate(`/dashboard/allnotes/${userid}`)
         } catch (error) {
             toast.error('something went wrong',{position:'top-center'})
             console.log(error);
