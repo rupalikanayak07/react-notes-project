@@ -21,7 +21,7 @@ const Navbar = () => {
     ]
 
     const { currentuser } = useContext(Globalcontextapi)
-    console.log(currentuser);
+    // console.log(currentuser);
     
     
 

@@ -11,6 +11,8 @@ import Register from "../pages/Register"
 import Profile from "../components/dashboard/Profile";
 import Updatestatus from "../privaterouting/Updatestatus";
 import Updateprofile from "../components/dashboard/Updateprofile";
+import Addnotes from "../components/dashboard/Addnotes";
+import Allnotes from "../components/dashboard/Allnotes";
 
 
 
@@ -48,6 +50,17 @@ export const routes = createBrowserRouter([
                         element: <Updateprofile />
 
                     },
+                    {
+                        path: '/dashboard/addnotes',
+                        element: <Addnotes />
+
+                    },
+                    {
+                        path: '/dashboard/allnotes',
+                        element: <Allnotes />
+
+                    },
+
                 ]
 
             }
@@ -68,7 +81,7 @@ export const routes = createBrowserRouter([
 
 
 
-     // path: '/dashboard/profile/:userId', --dynamic routing
+// path: '/dashboard/profile/:userId', --dynamic routing
 
-    //  using slug value dynamic routing is achieved in react. to define slug value  : is used.
-    // slug is a variable...
+//  using slug value dynamic routing is achieved in react. to define slug value  : is used.
+// slug is a variable...

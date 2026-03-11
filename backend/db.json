@@ -9,6 +9,48 @@
       "dob": "2026-03-03",
       "city": "Bangalore",
       "gender": "Female"
+    },
+    {
+      "id": "4fed",
+      "username": "Rupalika",
+      "age": "24",
+      "email": "rupalikanayak48@gmail.com",
+      "password": "1234",
+      "dob": "2026-03-09",
+      "city": "Bangalore",
+      "gender": "Female"
+    }
+  ],
+  "notes": [
+    {
+      "id": "11cd",
+      "title": "python",
+      "desc": "complete",
+      "tags": "#success"
+    },
+    {
+      "id": "5bcc",
+      "title": "react",
+      "desc": "revision",
+      "tags": "#done"
+    },
+    {
+      "id": "7f83",
+      "title": "react",
+      "desc": "rgagshuhs",
+      "tags": "hnsajksn"
+    },
+    {
+      "id": "7469",
+      "title": "",
+      "desc": "",
+      "tags": ""
+    },
+    {
+      "id": "29c7",
+      "title": "jdhkjs",
+      "desc": "ndksjk",
+      "tags": "kjsdklj"
     }
   ],
   "$schema": "./node_modules/json-server/schema.json"
