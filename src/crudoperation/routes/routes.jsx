@@ -13,6 +13,7 @@ import Updatestatus from "../privaterouting/Updatestatus";
 import Updateprofile from "../components/dashboard/Updateprofile";
 import Addnotes from "../components/dashboard/Addnotes";
 import Allnotes from "../components/dashboard/Allnotes";
+import Updatenote from "../components/dashboard/Updatenote";
 
 
 
@@ -58,6 +59,11 @@ export const routes = createBrowserRouter([
                     {
                         path: '/dashboard/allnotes/:userid',
                         element: <Allnotes />
+
+                    },
+                    {
+                        path: '/dashboard/updatenote/:noteid',
+                        element: <Updatenote />
 
                     },
 

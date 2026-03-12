@@ -43,7 +43,7 @@ const Allnotes = () => {
                         {
                             allnotes?.map((note, index) => {
                                 return <Fragment key={index}>
-                                    <Notecard data={note} />
+                                    <Notecard data={{note,userid}} />
                                 </Fragment>
                             })
                         }
