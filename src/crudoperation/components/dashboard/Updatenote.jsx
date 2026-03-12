@@ -1,11 +1,14 @@
 import axios from 'axios'
 import React, { useEffect, useState } from 'react'
-import { useNavigate, useParams } from 'react-router-dom'
+import { Link, useNavigate, useParams } from 'react-router-dom'
 import { toast } from 'react-toastify'
 
 const Updatenote = () => {
 
     const { noteid } = useParams()
+    
+
+
 
     const [formdata, setformdata] = useState({
         title: '',
@@ -48,7 +51,7 @@ const Updatenote = () => {
                 desc: '',
                 tags: ''
             });
-             navigate(`/dashboard/allnotes/${id}`)
+            navigate(`/dashboard/allnotes/${id}`)
 
 
         } catch (error) {
@@ -62,7 +65,7 @@ const Updatenote = () => {
         <div className=" h-full w-[50%] flex items-center justify-center ">
 
             {/* Card */}
-            <form className="w-[400px] bg-white shadow-xl rounded-2xl p-8 space-y-6" onSubmit={handelform}>
+            <form className="w-[400px] bg-white shadow-xl rounded-2xl p-8 space-y-6" >
 
                 {/* Heading */}
                 <h2 className="text-2xl font-semibold text-center text-gray-700">
@@ -103,8 +106,11 @@ const Updatenote = () => {
                     />
                 </div>
                 {/* Button */}
-                <button className="w-full bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 rounded-lg transition duration-300">
+                <button className="w-full bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 rounded-lg transition duration-300" onClick={handelform}>
                     Update Note
+                </button>
+                <button className="w-full bg-purple-500 hover:bg-purple-600 text-white font-medium py-2 rounded-lg transition duration-300">
+                    <Link to={`/dashboard/allnotes/${id}`}> cancel</Link>
                 </button>
             </form>
 

@@ -29,6 +29,9 @@ const Allnotes = () => {
     useEffect(() => {
         fetchallnotes()
     }, [])
+
+   
+
     return (
         <div className='h-[89vh] w-full flex flex-col'>
             <h1 className="text-3xl font-bold text-center text-gray-700 mb-10">
@@ -43,7 +46,7 @@ const Allnotes = () => {
                         {
                             allnotes?.map((note, index) => {
                                 return <Fragment key={index}>
-                                    <Notecard data={{note,userid}} />
+                                    <Notecard data={{ note, userid,fetchallnotes}} />
                                 </Fragment>
                             })
                         }

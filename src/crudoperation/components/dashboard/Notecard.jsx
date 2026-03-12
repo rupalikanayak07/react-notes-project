@@ -2,22 +2,25 @@ import React from "react";
 import axios from 'axios'
 import { Link, useNavigate, useParams } from "react-router-dom";
 
-const Notecard = ({ data: { note, userid } }) => {
+const Notecard = ({ data: { note, userid ,fetchallnotes} }) => {
 
     
     const navigate = useNavigate()
 
    
-    const deletenote = async (params) => {
+     const deletenote = async (noteid) => {
 
-        const { data } = await axios.delete(`http://localhost:3000/notes/${note.id}`)
-        console.log(data);
-        console.log('delete');
-        navigate(`/dashboard/allnotes/${userid}`)
+        try {
+            const { data } = await axios.delete(`http://localhost:3000/notes/${note.id}`)
+            fetchallnotes()
+            console.log(data);
+            console.log('delete');
+        } catch (error) {
+            toast.error('something went wrong', { position: 'top-center' })
+            console.log(error);
 
-
+        }
     }
-
 
     return (
         <div className="group relative bg-white rounded-2xl border border-gray-200 shadow-sm hover:shadow-xl transition-all duration-300 p-6 flex flex-col justify-between h-[210px]">
@@ -59,7 +62,7 @@ const Notecard = ({ data: { note, userid } }) => {
                 {/* actions */}
                 <div className="flex gap-2">
 
-                    <button className="px-3 py-1.5 text-xs font-medium rounded-md bg-blue-50 text-blue-600 hover:bg-blue-500 hover:text-white transition">  <Link to={`/dashboard/updatenote/${note.id}`} state={{ userid: userid }}> Edit</Link>
+                    <button className="px-3 py-1.5 text-xs font-medium rounded-md bg-blue-50 text-blue-600 hover:bg-blue-500 hover:text-white transition">  <Link to={`/dashboard/updatenote/${note.id}`} > Edit</Link>
 
                     </button>
 
