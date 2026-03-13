@@ -3,6 +3,7 @@ import React, { Fragment, useEffect, useState } from 'react'
 import { toast } from 'react-toastify'
 import Notecard from './Notecard'
 import { useParams } from 'react-router-dom'
+import { axiosinstace } from '../../../axiosinstance'
 
 const Allnotes = () => {
     const [allnotes, setallnotes] = useState(null)
@@ -11,7 +12,7 @@ const Allnotes = () => {
     const fetchallnotes = async (e) => {
 
         try {
-            const { data } = await axios.get('http://localhost:3000/notes')
+            const { data } = await axiosinstace.get('notes')
             setallnotes(data)
 
             const filterdata = data.filter((note) => note.userid == userid)
@@ -33,7 +34,7 @@ const Allnotes = () => {
    
 
     return (
-        <div className='h-[89vh] w-full flex flex-col'>
+        <div className='h-[89vh] w-full flex flex-col items-center justify-center'>
             <h1 className="text-3xl font-bold text-center text-gray-700 mb-10">
                 My Notes
             </h1>
@@ -41,7 +42,7 @@ const Allnotes = () => {
                 <p>no notes found</p> :
 
                 (
-                    <div className=' h-full w-full flex flex-col justify-evenly items-center gap-1 flex-wrap  p-2'>
+                    <div className=' h-full w-full flex justify-evenly items-center gap-1 flex-wrap '>
 
                         {
                             allnotes?.map((note, index) => {
